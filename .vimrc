@@ -62,6 +62,8 @@ autocmd InsertEnter * se cul
 set showcmd
 
 set clipboard=unnamed
+
+map te $a
 "*********************************************************
 "something about plugins
 
