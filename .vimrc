@@ -1,5 +1,4 @@
 "the basic setting
-
 set nu
 
 "启动时隐去援助提示
@@ -62,13 +61,6 @@ autocmd InsertEnter * se cul
 "显示输入的命令
 set showcmd
 
-"被分割窗口之间显示空白
-set fillchars=vert:/
-
-set fillchars=stl:/
-
-set fillchars=stlnc:/
-
 set clipboard=unnamed
 "*********************************************************
 "something about plugins
@@ -89,18 +81,25 @@ Plugin 'Valloric/YouCompleteMe'
 "delimitMate"
 Plugin 'Raimondi/delimitMate'
 
+"tpope/vim-commentary
+Plugin 'tpope/vim-commentary'
 
+"scrooloose/nerdtree
+Plugin 'scrooloose/nerdtree'
 call vundle#end()            " required
 filetype plugin indent on
 
 "YCM config
 let g:ycm_server_python_interpreter='/usr/bin/python'
 let g:ycm_global_ycm_extra_conf='~/.vim/.ycm_extra_conf.py'
-
+let g:ycm_auto_trigger=3
 "delimitMate
 let delimitMate_expand_cr=1
 au FileType python let b:delimitMate_nesting_quotes=['"']
 au FileType mail let b:delimitMate_autoclose=0
+"Nerdtree
+map <F2> :NERDTreeToggle<CR>
+autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTreeType") &&b:NERDTreeType == "primary") | q | endif
 "**********************************************************
 "something others
 
