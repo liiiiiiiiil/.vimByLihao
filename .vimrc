@@ -1,3 +1,6 @@
+set lines=45 columns=118
+
+
 "the basic setting
 set nu
 
@@ -95,6 +98,7 @@ filetype plugin indent on
 let g:ycm_server_python_interpreter='/usr/bin/python'
 let g:ycm_global_ycm_extra_conf='~/.vim/.ycm_extra_conf.py'
 let g:ycm_auto_trigger=3
+set splitbelow
 "delimitMate
 let delimitMate_expand_cr=1
 au FileType python let b:delimitMate_nesting_quotes=['"']
