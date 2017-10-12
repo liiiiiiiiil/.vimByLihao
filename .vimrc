@@ -71,7 +71,7 @@ autocmd InsertEnter * se cul
 "显示输入的命令
 set showcmd
 
-set clipboard=unnamed
+"set clipboard=unnamed
 
 map te $a
 
@@ -126,6 +126,10 @@ au FileType mail let b:delimitMate_autoclose=0
 "Nerdtree
 map <F2> :NERDTreeToggle<CR>
 autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTreeType") &&b:NERDTreeType == "primary") | q | endif
+
+"colorschemes
+
+
 "**********************************************************
 "**********************************************************
 "**********************************************************
