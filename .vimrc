@@ -69,7 +69,7 @@ set fillchars=stl:/
 
 set fillchars=stlnc:/
 
-
+set clipboard=unnamed
 "*********************************************************
 "something about plugins
 
@@ -86,6 +86,9 @@ Plugin 'VundleVim/Vundle.vim'
 "YouCompleteme
 Plugin 'Valloric/YouCompleteMe'
 
+"delimitMate"
+Plugin 'Raimondi/delimitMate'
+
 
 call vundle#end()            " required
 filetype plugin indent on
@@ -94,51 +97,13 @@ filetype plugin indent on
 let g:ycm_server_python_interpreter='/usr/bin/python'
 let g:ycm_global_ycm_extra_conf='~/.vim/.ycm_extra_conf.py'
 
-
-
+"delimitMate
+let delimitMate_expand_cr=1
+au FileType python let b:delimitMate_nesting_quotes=['"']
+au FileType mail let b:delimitMate_autoclose=0
 "**********************************************************
 "something others
 
-"comptetion
-function! AutoPair(open, close)
-        let line = getline('.')
-        if col('.') > strlen(line) || line[col('.') - 1] == ' '
-                return a:open.a:close."\<ESC>i"
-        else
-                return a:open
-        endif
-endf
-
-function! ClosePair(char)
-        if getline('.')[col('.') - 1] == a:char
-                return "\<Right>"
-        else
-                return a:char
-        endif
-endf
-
-function! SamePair(char)
-        let line = getline('.')
-        if col('.') > strlen(line) || line[col('.') - 1] == ' '
-                return a:char.a:char."\<ESC>i"
-        elseif line[col('.') - 1] == a:char
-                return "\<Right>"
-        else
-                return a:char
-        endif
-endf
-
-inoremap ( <c-r>=AutoPair('(', ')')<CR>
-inoremap ) <c-r>=ClosePair(')')<CR>
-inoremap { <c-r>=AutoPair('{', '}')<CR>
-inoremap } <c-r>=ClosePair('}')<CR>
-inoremap [ <c-r>=AutoPair('[', ']')<CR>
-inoremap ] <c-r>=ClosePair(']')<CR>
-inoremap " <c-r>=SamePair('"')<CR>
-inoremap ' <c-r>=SamePair("'")<CR>
-inoremap ` <c-r>=SamePair('`')<CR>
-"大括号智能补全并且退格"
-"inoremap { {}<ESC>i<CR><ESC>V<O  
 
 "fast run
 func! CompileGcc()
@@ -223,6 +188,5 @@ endfunc
 map <F5> :call CompileCode()<CR>
 imap <F5> <ESC>:call CompileCode()<CR>
 vmap <F5> <ESC>:call CompileCode()<CR>
-
 map <F6> :call RunResult()<CR>
 
