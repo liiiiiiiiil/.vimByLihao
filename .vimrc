@@ -119,6 +119,7 @@ let g:ycm_server_python_interpreter='/usr/bin/python'
 let g:ycm_global_ycm_extra_conf='~/.vim/.ycm_extra_conf.py'
 let g:ycm_auto_trigger=3
 set splitbelow
+let g:ycm_key_list_previous_completion=['<Up>']
 "delimitMate
 let delimitMate_expand_cr=1
 au FileType python let b:delimitMate_nesting_quotes=['"']
