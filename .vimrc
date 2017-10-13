@@ -1,4 +1,4 @@
-set lines=45 columns=118
+set lines=40 columns=100
 
 
 "**********************************************************
@@ -118,6 +118,7 @@ filetype plugin indent on
 let g:ycm_server_python_interpreter='/usr/bin/python'
 let g:ycm_global_ycm_extra_conf='~/.vim/.ycm_extra_conf.py'
 let g:ycm_auto_trigger=3
+let g:ycm_key_list_previous_completion=['<Up>']
 set splitbelow
 "delimitMate
 let delimitMate_expand_cr=1
